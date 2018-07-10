@@ -1,6 +1,15 @@
 // ide deklaráljátok a függvényeket.
 // 1. feladat
-function costOrder() {
+function nullToZero(spaceships) {
+    for (var i = 0; i < spaceships.length; i++) {
+        if (!spaceships[i].cost_in_credits) {
+          spaceships[i].cost_in_credits = 0
+      }
+    }
+    return spaceships;
+  };
+
+function costOrder(spaceships) {
    while (i > 0) {
     for (var j = 0; j < i; j++) {
       if (parseInt(spaceships[j].cost_in_credits) > parseInt(spaceships[j + 1].cost_in_credits)) {
@@ -14,7 +23,7 @@ function costOrder() {
 };
 
 // 2. feladat
-function deleteNull() {
+function deleteNull(spaceships) {
   for (var i = spaceships.length - 1; i >= 0; i--) {
     if (spaceships[i].consumables === null) {
       spaceships.splice(i, 1)
@@ -23,10 +32,13 @@ function deleteNull() {
 };
 
 // 3. feladat
-function nullToUnknown() {
+function nullToUnknown(spaceships) {
   for (var i = 0; i < spaceships.length; i++) {
     for (var k in spaceships[i]) {
       if (!spaceships[i][k]) {
+        spaceships[i][k] = "unknown"
+      }
+      else if if (spaceships[i][k] == 0) {
         spaceships[i][k] = "unknown"
       }
     }
@@ -35,7 +47,7 @@ function nullToUnknown() {
 };
 
 // 4. feladat
-function spaceshipDatas() {
+function spaceshipDatas(spaceships) {
 var outputSpacehips = "";
 for (var i in spaceships) {
     for (var j in spaceships[i]) {
@@ -47,7 +59,7 @@ return outputSpaceships;
 };
 
 // 5. feladat
-function  statCrew() {
+function  statCrew(spaceships) {
   var oneCrew = 0;
   for (var i = 0; i < spaceships.length; i++) {
     if (parseInt(spaceships[i].crew) === 1) {
@@ -58,7 +70,7 @@ function  statCrew() {
 };
 
 
-function largestCargo() {
+function largestCargo(spaceships) {
  var largestCargo = parseInt(spaceships[0].cargo_capacity);
  var largestCargoName = spaceships[0].model;
  for (var i = 0; i < spaceships.length; i++) {
@@ -70,7 +82,7 @@ function largestCargo() {
  return largestCargoName;
 };
 
-function allPassengersNumber() {
+function allPassengersNumber(spaceships) {
   var allPassengers = 0;
   for (var i = 0; i < spaceships.length; i++) {
     if (spaceships[i].passengers !== "unknown") {
@@ -80,7 +92,7 @@ function allPassengersNumber() {
   return allPassengers;
 }
 
-function longestShip() {
+function longestShip(spaceships) {
   var longShip = parseInt(spaceships[0].lengthiness);
   var longestShipPictureName = spaceships[0].image;
   for (var i = 0; i < spaceships.length; i++) {
@@ -93,18 +105,18 @@ function longestShip() {
  };
 
  // 6. feladat
- function modelSearch() {
-  var userSearch; 
+ function modelSearch(spaceships) {
+  var userSearch = userSearch.toLowerCase()
   var foundModels = [];
   for (var i=0; i < spaceships.length; i++) {
-    if (spaceships[i].model.indexOf(userSearch) > -1) {
-      found.push(spaceships[i]);
+    if (spaceships[i].model.toLowerCase().indexOf(userSearch) > -1) {
+      foundModels.push(spaceships[i]);
   }
   }
 return foundModels;
  };
 
-function modelSearchOrder() {
+function modelSearchOrder(spaceships) {
   for (var i = 0; i < foundModels.length - 1; i++) {
     for (var j = i + 1; j < foundModels.length; j++) {
         if (foundModels[i].model.localeCompare(foundModels[j].model) > 0) {
@@ -118,7 +130,7 @@ function modelSearchOrder() {
   return searchedModel;
 };
 
-function spaceshipSearchedDatas() {
+function spaceshipSearchedDatas(spaceships) {
   var outputSpacehipSearched = "";
   for (var i in searchedModel) {
         outputSpacehipSearched += `${i}: ${searchedModel[i]}\n`;
