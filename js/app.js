@@ -1,16 +1,18 @@
 // ide deklaráljátok a függvényeket.
 // 1. feladat
 function nullToZero(spaceships) {
-    for (var i = 0; i < spaceships.length; i++) {
-        if (!spaceships[i].cost_in_credits) {
-          spaceships[i].cost_in_credits = 0
-      }
+  for (var i = 0; i < spaceships.length; i++) {
+    if (!spaceships[i].cost_in_credits) {
+      spaceships[i].cost_in_credits = 0;
     }
-    return spaceships;
-  };
+  }
+  return spaceships;
+}
 
 function costOrder(spaceships) {
-   while (i > 0) {
+  var i = 1;
+  var csere;
+  while (i > 0) {
     for (var j = 0; j < i; j++) {
       if (parseInt(spaceships[j].cost_in_credits) > parseInt(spaceships[j + 1].cost_in_credits)) {
         [spaceships[j], spaceships[j + 1]] = [spaceships[j + 1], spaceships[j]];
@@ -20,73 +22,85 @@ function costOrder(spaceships) {
     i = csere;
     return spaceships;
   }
-};
+}
 
 // 2. feladat
 function deleteNull(spaceships) {
   for (var i = spaceships.length - 1; i >= 0; i--) {
     if (spaceships[i].consumables === null) {
-      spaceships.splice(i, 1)
+      spaceships.splice(i, 1);
+    }
+    return spaceships;
   }
-  return spaceships;
-};
+}
 
 // 3. feladat
 function nullToUnknown(spaceships) {
   for (var i = 0; i < spaceships.length; i++) {
     for (var k in spaceships[i]) {
       if (!spaceships[i][k]) {
-        spaceships[i][k] = "unknown"
-      }
-      else if if (spaceships[i][k] == 0) {
-        spaceships[i][k] = "unknown"
+        spaceships[i][k] = 'unknown';
+      } else if (spaceships[i][k] == 0) {
+        spaceships[i][k] = 'unknown';
       }
     }
   }
   return spaceships;
-};
+}
 
 // 4. feladat
 function spaceshipDatas(spaceships) {
-var outputSpacehips = "";
-for (var i in spaceships) {
+  var outputSpaceships = '';
+  for (var i in spaceships) {
     for (var j in spaceships[i]) {
-        outputSpacehips += `${j}: ${spaceships[i][j]}\n`;
+      outputSpaceships += `${j}: ${spaceships[i][j]}\n`;
     }
-    outputSpacehips += "\n"
+    outputSpaceships += '\n';
+  }
+  return outputSpaceships;
 }
-return outputSpaceships;
-};
+
+function spaceshipDatasDisplay(spaceships) {
+  for (var i in spaceships) {
+    var divforship = document.querySelector('.spaceship-list');
+    divforship.createElement('div');
+    var divAgain = document.querySelector('.spaceship-list div');
+    divAgain.ClassList.add('.spaceship' + [i]);
+    for (var k in spaceships[i]) {
+      document.querySelector('.spaceship' + [i]).innerHTML += `${j}: ${spaceships[i][j]}\n`;
+    }
+  }
+}
 
 // 5. feladat
 function  statCrew(spaceships) {
   var oneCrew = 0;
   for (var i = 0; i < spaceships.length; i++) {
     if (parseInt(spaceships[i].crew) === 1) {
-      oneCrew ++
+      oneCrew++;
     }
   }
   return oneCrew;
-};
+}
 
 
 function largestCargo(spaceships) {
- var largestCargo = parseInt(spaceships[0].cargo_capacity);
- var largestCargoName = spaceships[0].model;
- for (var i = 0; i < spaceships.length; i++) {
-   if (parseInt(spaceships[i].cargo_capacity) > largestCargo) {
-     largestCargo = parseInt(spaceships[i].cargo_capacity);
-     largestCargoName = spaceships[i].model;
-   }
- }
- return largestCargoName;
-};
+  var largestCargo = parseInt(spaceships[0].cargo_capacity);
+  var largestCargoName = spaceships[0].model;
+  for (var i = 0; i < spaceships.length; i++) {
+    if (parseInt(spaceships[i].cargo_capacity) > largestCargo) {
+      largestCargo = parseInt(spaceships[i].cargo_capacity);
+      largestCargoName = spaceships[i].model;
+    }
+  }
+  return largestCargoName;
+}
 
 function allPassengersNumber(spaceships) {
   var allPassengers = 0;
   for (var i = 0; i < spaceships.length; i++) {
-    if (spaceships[i].passengers !== "unknown") {
-    allPassengers += parseInt(spaceships[i].passengers)
+    if (spaceships[i].passengers !== 'unknown') {
+      allPassengers += parseInt(spaceships[i].passengers);
     }
   }
   return allPassengers;
@@ -102,43 +116,43 @@ function longestShip(spaceships) {
     }
   }
   return longestShipPictureName;
- };
+}
 
- // 6. feladat
- function modelSearch(spaceships) {
-  var userSearch = userSearch.toLowerCase()
+// 6. feladat
+function modelSearch(spaceships) {
+  var userSearch = userSearch.toLowerCase();
   var foundModels = [];
-  for (var i=0; i < spaceships.length; i++) {
+  for (var i = 0; i < spaceships.length; i++) {
     if (spaceships[i].model.toLowerCase().indexOf(userSearch) > -1) {
       foundModels.push(spaceships[i]);
+    }
   }
-  }
-return foundModels;
- };
+  return foundModels;
+}
 
 function modelSearchOrder(spaceships) {
   for (var i = 0; i < foundModels.length - 1; i++) {
     for (var j = i + 1; j < foundModels.length; j++) {
-        if (foundModels[i].model.localeCompare(foundModels[j].model) > 0) {
-            var temp = [foundModels[i], foundModels[j]];
-            foundModels[i] = temp[1];
-            foundModels[j] = temp[0];
-        }
+      if (foundModels[i].model.localeCompare(foundModels[j].model) > 0) {
+        var temp = [foundModels[i], foundModels[j]];
+        foundModels[i] = temp[1];
+        foundModels[j] = temp[0];
+      }
     }
-}
+  }
   var searchedModel = foundModels[0];
   return searchedModel;
-};
+}
 
 function spaceshipSearchedDatas(spaceships) {
-  var outputSpacehipSearched = "";
+  var outputSpacehipSearched = '';
   for (var i in searchedModel) {
-        outputSpacehipSearched += `${i}: ${searchedModel[i]}\n`;
-      outputSpacehipSearched += "\n"
+    outputSpacehipSearched += `${i}: ${searchedModel[i]}\n`;
+    outputSpacehipSearched += '\n';
   }
-  console.log(outputSpacehipSearched)
+  console.log(outputSpacehipSearched);
   return outputSpacehipSearched;
-  };
+}
 
 function getData(url, callbackFunc) {
   var xhttp = new XMLHttpRequest();
@@ -156,5 +170,17 @@ function successAjax(xhttp) {
   var userDatas = JSON.parse(xhttp.responseText);
   // Innen lehet hívni.
   console.log(userDatas);
+
+  userDatas = nullToZero(userDatas);
+  userDatas = costOrder(userDatas);
+  userDatas = deleteNull(userDatas);
+  userDatas = nullToUnknown(userDatas);
+  userDatas = spaceshipDatasDisplay(userDatas);
+
+  document.querySelector('.spaceship-list').innerHTML = userDatas;
 }
+
+
 getData('/json/spaceships.json', successAjax);
+
+

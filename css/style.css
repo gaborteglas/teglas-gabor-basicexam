@@ -27,13 +27,17 @@ div{
 
 .spaceship-list{
   width: 100%;
-  background:  #0b88c5;
-  overflow: auto
+  overflow: auto;
+  background-image: url('https://i.imgur.com/JZSlmxy.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .one-spaceship{
   width: 100%;
-  background:  #000;
+  background-image:url('https://steamuserimages-a.akamaihd.net/ugc/924793354131983853/ADE64FFF0FC4F11A5022C85334CA3D01925B6296/');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .searchbar{
@@ -63,10 +67,16 @@ div{
 @media(min-width:1200px){
   .spaceship-list{
     width: 75%;
+  background-image:url('https://i.imgur.com/JZSlmxy.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   }
 
   .one-spaceship{
     width: 25%;
+    background-image:url('https://steamuserimages-a.akamaihd.net/ugc/924793354131983853/ADE64FFF0FC4F11A5022C85334CA3D01925B6296/');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .container>div{
