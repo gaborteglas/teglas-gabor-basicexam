@@ -1,6 +1,7 @@
 body{
   margin:0;
   font-size: 16px;
+  color: yellow;
 }
 
 div{
@@ -29,7 +30,7 @@ div{
   width: 100%;
   overflow: auto;
   background-image: url('https://i.imgur.com/JZSlmxy.jpg');
-  background-repeat: no-repeat;
+  filter: grayscale(60%);
   background-size: cover;
 }
 
@@ -38,6 +39,16 @@ div{
   background-image:url('https://steamuserimages-a.akamaihd.net/ugc/924793354131983853/ADE64FFF0FC4F11A5022C85334CA3D01925B6296/');
   background-repeat: no-repeat;
   background-size: cover;
+
+  
+}
+
+p {
+  color: yellow;
+  bottom: 0;
+  width: 70vw;
+  border: 3px solid yellow;
+  text-align: center;
 }
 
 .searchbar{
@@ -64,12 +75,35 @@ div{
   cursor: pointer;
 }
 
+.img-p {
+  width: 20vw;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+td {
+  height: 5vw;
+}
+
+table {
+  table-layout: fixed;
+  width: 70vw;
+}
+
+table td {
+  word-wrap: break-word; 
+  overflow-wrap: break-word;
+}
+
 @media(min-width:1200px){
   .spaceship-list{
     width: 75%;
-  background-image:url('https://i.imgur.com/JZSlmxy.jpg');
-  background-repeat: no-repeat;
+  background-image: url('https://digitalart.io/storage/artworks/716/Darth-Vader-Star-Wars-Wallpaper.jpeg');
+  filter: grayscale(60%);
   background-size: cover;
+  
   }
 
   .one-spaceship{
@@ -88,4 +122,38 @@ div{
     bottom: 20px;
     left: 20px;
   }
+
+  p {
+    color: yellow;
+    bottom: 0;
+    width: 70vw;
+    border: 3px solid yellow;
+    text-align: center;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+  }
+
+  td {
+    height: 5vw;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 70vw;
+  }
+
+  table td {
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
 }
+  
+  .img-p {
+    width: 20vw;
+  }
+
+
+}
+
+
