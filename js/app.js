@@ -69,7 +69,6 @@ function makeTable(spaceships) {
     tr.className = `id${[i]}`;
     for (var k in spaceships[i]) {
       var td = document.createElement('td');
-      td.className = `class${[k]}`;
       tr.appendChild(td);
       td.innerHTML = spaceships[i][k];
     }
